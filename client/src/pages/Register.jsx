@@ -19,7 +19,7 @@ const Register = () => {
             const response = await api.post("/auth/register" , {name , email , password});
             if(response.data.token){
                 localStorage.setItem("token" , response.data.token);
-                localStorage.setItem("user" , response.data.user);
+                localStorage.setItem("user" , JSON.stringify(response.data.user));
                 console.log(response.data);
             }
             navigate("/")

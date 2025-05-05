@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Header  = () => {
-    
+
+    const currentUser = localStorage.getItem("user");
+    const navigate = useNavigate();
+    const logout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        navigate("/");
+    }
+
 
     return (
         <header className="bg-blue text-black">

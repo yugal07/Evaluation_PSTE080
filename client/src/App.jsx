@@ -8,6 +8,7 @@ import CreateRecipe from './pages/CreateRecipe'
 import Home from './pages/Home'
 import { Link } from 'react-router-dom'
 import { BrowserRouter as Router , Routes , Route, BrowserRouter } from 'react-router-dom'
+import Header from './components/Header'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,9 +24,10 @@ function App() {
 
   return (
     <BrowserRouter>
-    <div>
+    <div><div>
+          <Header />
+        </div>
       <Routes>
-        <Route path='/' element = {<Home />} />
         <Route path='/login' element = {<Login />} />
         <Route path='/register' element = {<Register />} />
         <Route path='/create-recipe' element = {<CreateRecipe />} />
