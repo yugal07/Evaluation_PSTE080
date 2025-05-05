@@ -3,18 +3,15 @@ import api from "../services/api";
 import RecipeCard from "../components/RecipeCard";
 
 const Home = async () => {
-    const [error, setError] = useState(true);
     const [data , setData] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await api.get("/recipe");
-            setData(response.data);
-        }
-        fetchData();
-    } , []);
+    const getData = async () => {
+        const response  = await api.get("/recipe");
+        return response.data;
+    }
     
-    console.log(data)
+    const val = await getData();
+    setData(val);
 
     return (
         <div>

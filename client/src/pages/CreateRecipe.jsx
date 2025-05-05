@@ -7,13 +7,19 @@ const CreateRecipe = () => {
     const [steps , setSteps] = useState("");
     const [cookingTime , setCookingTime] = useState(0);
 
-    const currentUser = localStorage.getItem("user");
+    let currentUser = localStorage.getItem("user");
+
+    currentUser = JSON.parse(currentUser);
 
     const handleSubmit = async(e) => {
         e.preventDefault();
         console.log(currentUser)
         try {
             const response = await api.post("/recipe" , {title , ingredients: [ingredients] ,steps ,cookingTime: Number(cookingTime) , author: currentUser._id});
+            setTitle("");
+            setIngredients("");
+            setSteps("")
+            setCookingTime("")
         }
         catch(error){
             throw error

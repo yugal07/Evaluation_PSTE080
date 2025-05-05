@@ -31,6 +31,7 @@ function App() {
         <Route path='/login' element = {<Login />} />
         <Route path='/register' element = {<Register />} />
         <Route path='/create-recipe' element = {<CreateRecipe />} />
+        <Route path='/recipes' element = { <Home /> } />
       </Routes>
     </div>
     </BrowserRouter>
